@@ -3,11 +3,15 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { Container, Header, Title, Content, View, Text, Button, Icon } from 'native-base';
+import { TextInput } from 'react-native';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import { openDrawer } from '../../actions/drawer';
-import { replaceRoute } from '../../actions/route';
+import * as virtualTableActions from '../../actions/virtualTable';
+
+import StopInput from '../StopInput';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
@@ -19,6 +23,8 @@ class Home extends Component {
     }
 
     render() {
+        const { inputBlur, inputSet, inputFocus, inputText } = this.props;
+        //FIXME StopInput keeps dismissing keyboard while classic RN TextInput don't (as expected)
         return (
             <Container theme={theme} style={{backgroundColor: '#565051'}}>
                 <Content>
@@ -30,6 +36,23 @@ class Home extends Component {
                                 </Text>
                             </View>
                         </Row>
+                        <Row>
+                          <StopInput
+                            onBlur={inputBlur}
+                            onChangeText={inputSet}
+                            onFocus={inputFocus}
+                            value={inputText}
+                            />
+                        </Row>
+                        <Row>
+                          <TextInput
+                            style={{height: 40, borderColor: 'gray', borderWidth: 1, width: 400}}
+                            onBlur={inputBlur}
+                            onChangeText={inputSet}
+                            onFocus={inputFocus}
+                            value={inputText}
+                            />
+                        </Row>
                     </Grid>
                 </Content>
             </Container>
@@ -38,10 +61,13 @@ class Home extends Component {
 }
 
 function bindAction(dispatch) {
-    return {
-        openDrawer: ()=>dispatch(openDrawer()),
-        replaceRoute:(route)=>dispatch(replaceRoute(route))
-    }
+    return bindActionCreators(virtualTableActions, dispatch);
 }
 
-export default connect(null, bindAction)(Home);
+function mapStateToProps(state) {
+  return {
+    inputText: state.virtualTable.inputText,
+  }
+}
+
+export default connect(mapStateToProps, bindAction)(Home);
