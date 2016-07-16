@@ -1,6 +1,6 @@
 {
-    "name": "NativeStarterKit",
-    "version": "3.1.0",
+    "name": "mhd-simple",
+    "version": "0.1.0",
     "private": true,
     "scripts": {
         "postinstall": "remotedev-debugger",
@@ -32,20 +32,6 @@
         "remotedev-server": "^0.1.2"
     },
     "keywords": [
-        "android",
-        "ios",
-        "react",
-        "native",
-        "react-native",
-        "native-modules",
-        "react-component",
-        "navbar",
-        "packager",
-        "rnpm",
-        "es6",
-        "react-native boilerplate",
-        "redux",
-        "react-native with redux",
-        "react-native with redux boilerplate"
+        "mhd"
     ]
 }

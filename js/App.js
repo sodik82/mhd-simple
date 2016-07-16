@@ -17,7 +17,8 @@ class App extends Component {
 
     handleAppStateChange(state:string) {
         if (state === 'active') {
-            CodePush.sync({installMode: CodePush.InstallMode.IMMEDIATE});
+          // disble CodePush for now
+          // CodePush.sync({installMode: CodePush.InstallMode.IMMEDIATE});
         }
     }
     render() {

@@ -20,53 +20,13 @@ class Home extends Component {
 
     render() {
         return (
-            <Container style={{backgroundColor: '#565051'}}>
-                <Header style={{backgroundColor: '#322A2A'}} foregroundColor="#fff" >
-                    <Button transparent onPress={() => this.replaceRoute('login')}>
-                        <Icon name="ios-power" />
-                    </Button>
-                    
-                    <Title>Home</Title>
-                    
-                    <Button transparent onPress={this.props.openDrawer}>
-                        <Icon name="ios-menu" />
-                    </Button>
-                </Header>
-                
+            <Container theme={theme} style={{backgroundColor: '#565051'}}>
                 <Content>
                     <Grid style={{marginTop: 20}}>
                         <Row>
                             <View style={styles.row}>
-                                <Text style={styles.text}>
-                                    React Native starter kit
-                                </Text>
-                            </View>
-                        </Row>
-                        <Row>
-                            <View style={styles.row}>
-                                <Text style={styles.text}>
-                                    with RN Navigator
-                                </Text>
-                            </View>
-                        </Row>
-                        <Row>
-                            <View style={styles.row}>
-                                <Text style={styles.text}>
-                                    NativeBase
-                                </Text>
-                            </View>
-                        </Row>
-                        <Row>
-                            <View style={styles.row}>
-                                <Text style={styles.text}>
-                                    CodePush
-                                </Text>
-                            </View>
-                        </Row>
-                        <Row>
-                            <View style={styles.row}>
-                                <Text style={styles.text}>
-                                    Redux
+                                <Text>
+                                    MHD simple
                                 </Text>
                             </View>
                         </Row>

@@ -11,7 +11,7 @@ export type State = {
 }
 
 const initialState = {
-    routes: ['login']
+    routes: ['home']
 };
 
 export default function (state:State = initialState, action:Action): State {
@@ -31,7 +31,7 @@ export default function (state:State = initialState, action:Action): State {
         if(routes[routes.length - 1] == 'home') {
             if(action.route != 'home')
                 globalNav.navigator.push({id: action.route});
-            else 
+            else
                 routes = [];
         }
 
