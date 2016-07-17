@@ -9,8 +9,8 @@ import virtualTable from './virtualTable';
 
 export default combineReducers({
 
- 	drawer,
- 	route,
+  drawer,
+  route,
   virtualTable,
 
 })

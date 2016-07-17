@@ -3,8 +3,8 @@
 
 import AppNavigator from './AppNavigator';
 import React,{ Component } from "react";
-import CodePush from 'react-native-code-push';
-import { StyleSheet, Text, View, AppState} from 'react-native';
+// import CodePush from 'react-native-code-push';
+import { AppState} from 'react-native';
 
 class App extends Component {
     componentDidMount() {

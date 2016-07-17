@@ -5,10 +5,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Container, Header, Title, Content, View, Text, Button, Icon } from 'native-base';
+import { Container, Content, View, Text, } from 'native-base';
 import { TextInput } from 'react-native';
-import { Grid, Col, Row } from 'react-native-easy-grid';
-import { openDrawer } from '../../actions/drawer';
+import { Grid, Row } from 'react-native-easy-grid';
 import * as virtualTableActions from '../../actions/virtualTable';
 
 import StopInput from '../StopInput';

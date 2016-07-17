@@ -2,7 +2,7 @@ import React from 'react';
 
 import { InputGroup, Input, Icon } from 'native-base';
 
-export default StopInput = (props) => {
+const StopInput = (props) => {
   console.log("props", props);
   return (
     <InputGroup borderType="underline" >
@@ -11,3 +11,5 @@ export default StopInput = (props) => {
     </InputGroup>
   );
 }
+
+export default StopInput;

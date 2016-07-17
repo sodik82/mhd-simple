@@ -3,7 +3,6 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash/core';
 import { Drawer } from 'native-base';
 import { BackAndroid, StatusBar } from 'react-native';
 import { closeDrawer } from './actions/drawer';
@@ -15,24 +14,6 @@ import SideBar from './components/sideBar';
 import BlankPage from './components/blankPage/';
 
 export var globalNav = {};
-
-const searchResultRegexp = /^search\/(.*)$/;
-
-const reducerCreate = params=>{
-    const defaultReducer = Reducer(params);
-    return (state, action)=>{
-        var currentState = state;
-
-        if(currentState){
-            while (currentState.children){
-                currentState = currentState.children[currentState.index]
-            }
-        }
-        return defaultReducer(state, action);
-    }
-};
-
-const drawerStyle  = { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3};
 
 class AppNavigator extends Component {
 
@@ -95,7 +76,7 @@ class AppNavigator extends Component {
                 />
                 <Navigator
                     ref={(ref) => this._navigator = ref}
-                    configureScene={(route) => {
+                    configureScene={() => {
                         return {
                             ...Navigator.SceneConfigs.FloatFromRight,
                             gestures: {}

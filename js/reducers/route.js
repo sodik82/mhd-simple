@@ -4,7 +4,6 @@
 import type { Action } from '../actions/types';
 import { globalNav } from '../AppNavigator';
 import { POP_ROUTE, REPLACE_ROUTE, REPLACE_OR_PUSH_ROUTE } from '../actions/route';
-import { REHYDRATE } from 'redux-persist/constants'
 
 export type State = {
     routes: Array<string>

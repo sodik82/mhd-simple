@@ -3,14 +3,12 @@
 
 var React = require('react-native');
 
-var { StyleSheet, Dimensions } = React;
-
-var deviceHeight = Dimensions.get('window').height;
+var { StyleSheet } = React;
 
 module.exports = StyleSheet.create({
     row: {
-    	flex: 1, 
-    	alignItems: 'center'
+      flex: 1,
+      alignItems: 'center'
     },
     text: {
         fontSize: 20,
