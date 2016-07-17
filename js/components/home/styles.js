@@ -15,5 +15,10 @@ module.exports = StyleSheet.create({
         color: "#fff",
         marginBottom: 15,
         alignItems: 'center'
+    },
+    main: {
+      flexDirection: 'column',
+      flex: 1,
+      paddingTop: 25,
     }
 });

@@ -1,7 +1,7 @@
 import { Record, List } from 'immutable';
 
 import { SET, ON_EDIT, ON_FOCUS, ON_BLUR } from '../actions/virtualTable';
-import { getNames } from '../data/';
+import { getStops } from '../data/';
 
 const StateRecord = Record ({
       inputText: '',
@@ -26,13 +26,13 @@ export default function (state = initialState, action) {
   return state;
 }
 
-const MAX_SUGGESTIONS = 10;
+const MAX_SUGGESTIONS = 7;
 
 function getSuggestions(value) {
   if (!value) {
     return undefined;
   }
-  let suggestions = getNames(value);
+  let suggestions = getStops(value);
   if (suggestions.length > MAX_SUGGESTIONS) {
     suggestions.length = MAX_SUGGESTIONS;
   }

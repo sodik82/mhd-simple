@@ -1,8 +1,13 @@
 import db from './iStops';
 
-/**
-Get all names matching query string.
+/*
+Stop type: { name, id }
 */
-export function getNames(query) {
-  return Object.keys(db).filter(name => name.indexOf(query) !== -1);
+
+/**
+Get all stops matching query string.
+*/
+export function getStops(query) {
+  const names = Object.keys(db).filter(name => name.indexOf(query) !== -1);
+  return names.map(name => ({name, id: db.name}));
 }
