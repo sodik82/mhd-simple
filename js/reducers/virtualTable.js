@@ -1,12 +1,13 @@
 import { Record, List } from 'immutable';
 
-import { SET, ON_EDIT, ON_FOCUS, ON_BLUR } from '../actions/virtualTable';
+import { SET, ON_EDIT, ON_FOCUS, ON_BLUR, ON_SUGGESTION } from '../actions/virtualTable';
 import { getStops } from '../data/';
 
 const StateRecord = Record ({
       inputText: '',
       suggestionsOpen : false,
       suggestions : undefined,
+      selectedSuggestion: undefined,
   });
 const initialState = new StateRecord();
 
@@ -21,6 +22,8 @@ export default function (state = initialState, action) {
     case ON_EDIT:
     case ON_BLUR:
       return state.set('suggestionsOpen', false);
+    case ON_SUGGESTION:
+      return state.set('suggestionsOpen', false).set('selectedSuggestion', action.suggestion);
   }
   // default
   return state;

@@ -5,8 +5,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Container, Text, } from 'native-base';
-import { View } from 'react-native';
+import { Container, H3, } from 'native-base';
+import { View, WebView } from 'react-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 import * as virtualTableActions from '../../actions/virtualTable';
@@ -23,15 +23,22 @@ class Home extends Component {
     }
 
     render() {
-        const { inputBlur, inputSet, inputFocus, inputText, suggestions } = this.props;
-        //FIXME StopInput keeps dismissing keyboard while classic RN TextInput don't (as expected)
+        console.log("home props", this.props.url);
+        const { inputBlur, inputSet, inputFocus, inputText, suggestions, selectSuggestion, url } = this.props;
         return (
             <Container theme={theme} style={{backgroundColor: '#565051'}}>
                 <View style={styles.main}>
-                  <View style={[styles.row, {flex:1}]}>
-                      <Text>
-                          MHD simple
-                      </Text>
+                  <View style={[styles.row, {flex:1, flexDirection: 'column'}]}>
+                      <View>
+                        <H3>
+                            MHD simple
+                        </H3>
+                      </View>
+                      {url && (
+                        <WebView
+                          source={{uri: url}}
+                          style={{marginTop: 20, flex: 1, }}
+                        />)}
                   </View>
                   <View>
                     <StopInput
@@ -40,6 +47,7 @@ class Home extends Component {
                       onFocus={inputFocus}
                       value={inputText}
                       suggestions={suggestions}
+                      onSelect={selectSuggestion}
                       />
                   </View>
                   <KeyboardSpacer/>
@@ -57,6 +65,14 @@ function mapStateToProps(state) {
   return {
     inputText: state.virtualTable.inputText,
     suggestions: state.virtualTable.suggestionsOpen && state.virtualTable.suggestions,
+    url: getVirtualTableUrl(state.virtualTable.selectedSuggestion),
+  }
+}
+
+function getVirtualTableUrl(sug) {
+  if(sug) {
+    const id = sug.id.substr(1);
+    return `https://m.imhd.sk/ba/online-zastavkova-tabula?z=${id}&skin=2`;
   }
 }
 

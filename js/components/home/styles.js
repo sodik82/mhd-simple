@@ -8,7 +8,7 @@ var { StyleSheet } = React;
 module.exports = StyleSheet.create({
     row: {
       flex: 1,
-      alignItems: 'center'
+      alignItems: 'stretch'
     },
     text: {
         fontSize: 20,
