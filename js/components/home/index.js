@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 
 import { Container, H3, } from 'native-base';
 import { View, WebView } from 'react-native';
+const dismissKeyboard = require('dismissKeyboard');
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 import * as virtualTableActions from '../../actions/virtualTable';
@@ -55,6 +56,12 @@ class Home extends Component {
             </Container>
         )
     }
+
+    componentWillReceiveProps(nextProps) {
+      if (this.props.keyboardOpen != nextProps.keyboardOpen && nextProps.keyboardOpen === false) {
+        dismissKeyboard();
+      }
+    }
 }
 
 function bindAction(dispatch) {
@@ -65,6 +72,7 @@ function mapStateToProps(state) {
   return {
     inputText: state.virtualTable.inputText,
     suggestions: state.virtualTable.suggestionsOpen && state.virtualTable.suggestions,
+    keyboardOpen: state.virtualTable.suggestionsOpen,
     url: getVirtualTableUrl(state.virtualTable.selectedSuggestion),
   }
 }

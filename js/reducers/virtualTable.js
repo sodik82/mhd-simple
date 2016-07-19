@@ -22,8 +22,13 @@ export default function (state = initialState, action) {
     case ON_EDIT:
     case ON_BLUR:
       return state.set('suggestionsOpen', false);
-    case ON_SUGGESTION:
-      return state.set('suggestionsOpen', false).set('selectedSuggestion', action.suggestion);
+    case ON_SUGGESTION: {
+      const { suggestion } = action;
+      return state.set('suggestionsOpen', false)
+        .set('selectedSuggestion', suggestion)
+        .set('inputText', suggestion.name)
+        .set('suggestions', getSuggestions(suggestion.name));
+    }
   }
   // default
   return state;
