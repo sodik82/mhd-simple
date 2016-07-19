@@ -1,63 +1,123 @@
 // sample data
 export default {
-    "Americké nám.": "z14",
-    "Alexyho": "z6",
-    "Astronomická": "z32",
-    "Autobusová stanica": "z26",
-    "Avion Shopping Park": "z4244",
-    "Agátová": "z506",
-    "Antolská": "z4055",
-    "Aupark": "z3032",
-    "Blumentál": "z503",
-    "Lúky V": "z1455",
-    "Bratislava-Nové Mesto": "z105471",
-    "Bratislava-Predmestie": "z105466",
-    "Bratislava-Rača": "z105454",
-    "Damborského": "z316",
-    "Detvianska": "z324",
-    "Cesta na Kamzík": "z4457",
-    "Cesta na letisko": "z175",
-    "Hospodárska": "z623",
-    "Botanická záhrada (Hostel Družba)": "z126",
-    "Cintorín Slávičie údolie (Hostel Mladosť)": "z2625",
-    "Hrad": "z626",
-    "Hrad Devín": "z4206",
-    "Nám. Ľ. Štúra": "z1740",
-    "Nám. slobody": "z1750",
-    "Námestie SNP": "z1754",
-    "MiÚ Karlova Ves (Miestny úrad Karlova Ves)": "z1323",
-    "MiÚ Ružinov (Miestny úrad Ružinov)": "z1116",
-    "MiÚ Čunovo (Miestny úrad Čunovo)": "z301",
-    "MiÚ P. Biskupice (Miestný úrad Podunajské Biskupice)": "z2132",
-    "Mlynská": "z1614",
-    "Mlynské nivy": "z1620",
-    "Pekná cesta": "z2176",
-    "Povraznícka": "z2303",
-    "Námestie SNP (Námestie Slovenského národného povstania)": "z1755",
-    "Rusovská cesta": "z2536",
-    "Ružová dolina": "z2544",
-    "Astronomická (Ružinov)": "z31",
-    "STU (Slovenská technická univerzita)": "z3231",
-    "Zoo (Slávičie údolie (Mlynská dolina))": "z2632",
-    "SAV (Slovenská akadémia vied)": "z2574",
-    "Hodžovo nám. (Slovenská sporiteľňa)": "z574",
-    "Smolenická": "z2674",
-    "Spoločenská": "z2726",
-    "Svätoplukova": "z3047",
-    "Švantnerova": "z3210",
-    "Švabinského": "z3205",
-    "Tomášikova": "z3302",
-    "Topoľčianska": "z3306",
-    "Vysoká": "z3546",
-    "Vývojová": "z3563",
-    "Pionierska (Výskumný ústav zváračský)": "z2225",
-    "Lafranconi (Fakulta telesnej výchovy a športu UK)": "z1325",
-    "Fatruny (Záhradníctvo)": "z3617",
-    "Saleziáni (Záhradnícka)": "z3612",
-    "ŽST Lamač (Železničná stanica Lamač)": "z3627",
-    "ŽST Nové Mesto (Železničná stanica Nové Mesto)": "z4016",
-    "ŽST Petržalka (Železničná stanica Petržalka)": "z4026",
-    "Šafárikovo nám. (Univerzita Komenského)": "z3051",
-    "SAV (Múzeum dopravy)": "z2577",
-    "Nám. Ľ. Štúra (Prírodovedné múzeum)": "z1742",
+    "Záporožská": {
+        "zid": "z3634",
+        "vtid": "487"
+    },
+    "Krče": {
+        "zid": "z1242",
+        "vtid": "168"
+    },
+    "Partizánska": {
+        "zid": "z2153",
+        "vtid": "282"
+    },
+    "ŽST Petržalka": {
+        "zid": "z4027",
+        "vtid": "517"
+    },
+    "Nákupná zóna Lúky": {
+        "zid": "z1707",
+        "vtid": "241"
+    },
+    "Sad Janka Kráľa": {
+        "zid": "z2563",
+        "vtid": "348"
+    },
+    "Damborského": {
+        "zid": "z316",
+        "vtid": "51"
+    },
+    "Železničná": {
+        "zid": "z3760",
+        "vtid": "508"
+    },
+    "Pri zvonici": {
+        "zid": "z2372",
+        "vtid": "318"
+    },
+    "Alexyho": {
+        "zid": "z6",
+        "vtid": "1"
+    },
+    "Patrónka, Kaufland": {
+        "zid": "z5416",
+        "vtid": "707"
+    },
+    "Twin City (Wüstenrot)": {
+        "zid": "z273",
+        "vtid": "46"
+    },
+    "ŽST P. Biskupice": {
+        "zid": "z4020",
+        "vtid": "516"
+    },
+    "Pod Zečákom": {
+        "zid": "z2416",
+        "vtid": "323"
+    },
+    "Domkárska": {
+        "zid": "z375",
+        "vtid": "63"
+    },
+    "Jasovská": {
+        "zid": "z774",
+        "vtid": "127"
+    },
+    "Kozia": {
+        "zid": "z1215",
+        "vtid": "163"
+    },
+    "Vyšehradská": {
+        "zid": "z3554",
+        "vtid": "475"
+    },
+    "Nám. 1. mája (Kollárovo námestie)": {
+        "zid": "z1723",
+        "vtid": "244"
+    },
+    "Americké nám. (Lekárska fakulta UK)": {
+        "zid": "z16",
+        "vtid": "3"
+    },
+    "Clementisova": {
+        "zid": "z213",
+        "vtid": "34"
+    },
+    "Slovanské nábrežie (ZŠ Devín)": {
+        "zid": "z347",
+        "vtid": "57"
+    },
+    "Nám. Ľ. Štúra (Slovenská národná galéria)": {
+        "zid": "z1740",
+        "vtid": "248"
+    },
+    "Bratislavská župa": {
+        "zid": "z3273",
+        "vtid": "430"
+    },
+    "Sandberg (Pieskovec)": {
+        "zid": "z2570",
+        "vtid": "350"
+    },
+    "Martinský cintorín": {
+        "zid": "z1515",
+        "vtid": "211"
+    },
+    "Autobusová stanica (Centrum Bottova)": {
+        "zid": "z24",
+        "vtid": "5"
+    },
+    "Nám. Franza Liszta (Predstaničné nám.)": {
+        "zid": "z2311",
+        "vtid": "306"
+    },
+    "Lovinského": {
+        "zid": "z1432",
+        "vtid": "198"
+    },
+    "Bratislava-Vajnory": {
+        "zid": "z105460",
+        "vtid": "8908"
+    }
 }

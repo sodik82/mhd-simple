@@ -71,7 +71,7 @@ function mapStateToProps(state) {
 
 function getVirtualTableUrl(sug) {
   if(sug) {
-    const id = sug.id.substr(1);
+    const id = sug.vtid;
     return `https://m.imhd.sk/ba/online-zastavkova-tabula?z=${id}&skin=2`;
   }
 }
