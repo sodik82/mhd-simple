@@ -5,14 +5,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Container, H3, } from 'native-base';
+import { Container, Text, } from 'native-base';
 import { View, WebView } from 'react-native';
 const dismissKeyboard = require('dismissKeyboard');
-import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 import * as virtualTableActions from '../../actions/virtualTable';
 
 import StopInput from '../StopInput';
+import KeyboardSpacer from '../KeyboardSpacer';
 
 import theme from '../../themes/base-theme';
 import styles from './styles';
@@ -24,21 +24,20 @@ class Home extends Component {
     }
 
     render() {
-        console.log("home props", this.props.url);
         const { inputBlur, inputSet, inputFocus, inputText, suggestions, selectSuggestion, url } = this.props;
         return (
             <Container theme={theme} style={{backgroundColor: '#565051'}}>
                 <View style={styles.main}>
                   <View style={[styles.row, {flex:1, flexDirection: 'column'}]}>
                       <View>
-                        <H3>
+                        <Text>
                             MHD simple
-                        </H3>
+                        </Text>
                       </View>
                       {url && (
                         <WebView
                           source={{uri: url}}
-                          style={{marginTop: 20, flex: 1, }}
+                          style={{marginTop: 5, flex: 1, }}
                         />)}
                   </View>
                   <View>
