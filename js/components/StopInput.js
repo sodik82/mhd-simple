@@ -5,9 +5,10 @@ import { View, TouchableHighlight, } from 'react-native';
 
 const StopInput = (props) => {
   console.log("props", props);
+  // best suggestions are first => reverse list
   const suggestions = props.suggestions && (
     <List>
-      {props.suggestions.map(s => (
+      {props.suggestions.reverse().map(s => (
         <ListItem key={s.id}>
           <TouchableHighlight onPress={() => props.onSelect(s)}>
             <View>

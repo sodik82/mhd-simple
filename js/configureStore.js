@@ -20,8 +20,10 @@ export default function configureStore(onCompletion:()=>void):any {
 	);
 
 	let store = createStore(reducer, enhancer);
-	persistStore(store, {storage: AsyncStorage}, onCompletion);
-	initStore(store);
+	persistStore(store, {storage: AsyncStorage}, () => {
+		initStore(store);
+		onCompletion();
+	});
 
 	return store
 }

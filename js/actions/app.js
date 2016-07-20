@@ -5,8 +5,7 @@ export function getGeoLocation() {
   return (dispatch) => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        var geoPosition = JSON.stringify(position);
-        dispatch(setGeoLocation(geoPosition));
+        dispatch(setGeoLocation(position));
       },
       (error) => console.log("problem getting location", error),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}

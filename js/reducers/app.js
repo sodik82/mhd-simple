@@ -1,4 +1,4 @@
-import { Record, fromJS } from 'immutable';
+import { Record } from 'immutable';
 
 import { SET_GEO } from '../actions/app';
 
@@ -14,7 +14,7 @@ export default function (state = initialState, action) {
   console.log("app reducer", action);
   switch (action.type) {
     case SET_GEO:
-      return state.set('geoPosition', fromJS(action.position));
+      return state.set('geoPosition', action.position);
   }
   // default
   return state;
