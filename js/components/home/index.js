@@ -48,6 +48,7 @@ class Home extends Component {
                       value={inputText}
                       suggestions={suggestions}
                       onSelect={selectSuggestion}
+                      autoFocus={true}
                       />
                   </View>
                   <KeyboardSpacer/>
@@ -57,8 +58,10 @@ class Home extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-      if (this.props.keyboardOpen != nextProps.keyboardOpen && nextProps.keyboardOpen === false) {
-        dismissKeyboard();
+      if (this.props.keyboardOpen != nextProps.keyboardOpen) {
+        if (nextProps.keyboardOpen === false) {
+          dismissKeyboard();
+        }
       }
     }
 }

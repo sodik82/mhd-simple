@@ -18,7 +18,7 @@ export default function (state = initialState, action) {
     case SET:
       return state.set('inputText', action.value).set('suggestions', getSuggestions(action.value));
     case ON_FOCUS:
-      return state.set('suggestionsOpen', true);
+      return state.set('suggestionsOpen', true).set('suggestions', getSuggestions(state.inputText));
     case ON_EDIT:
     case ON_BLUR:
       return state.set('suggestionsOpen', false);
@@ -26,8 +26,7 @@ export default function (state = initialState, action) {
       const { suggestion } = action;
       return state.set('suggestionsOpen', false)
         .set('selectedSuggestion', suggestion)
-        .set('inputText', suggestion.name)
-        .set('suggestions', getSuggestions(suggestion.name));
+        .set('inputText', suggestion.name);
     }
   }
   // default
@@ -37,9 +36,6 @@ export default function (state = initialState, action) {
 const MAX_SUGGESTIONS = 7;
 
 function getSuggestions(value) {
-  if (!value) {
-    return undefined;
-  }
   let suggestions = getStops(value);
   if (suggestions.length > MAX_SUGGESTIONS) {
     suggestions.length = MAX_SUGGESTIONS;
