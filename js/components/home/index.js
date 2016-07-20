@@ -10,6 +10,7 @@ import { View, WebView } from 'react-native';
 const dismissKeyboard = require('dismissKeyboard');
 
 import * as virtualTableActions from '../../actions/virtualTable';
+import { getSuggestions } from '../../data/suggestions';
 
 import StopInput from '../StopInput';
 import KeyboardSpacer from '../KeyboardSpacer';
@@ -71,11 +72,12 @@ function bindAction(dispatch) {
 }
 
 function mapStateToProps(state) {
+  const vt = state.virtualTable;
   return {
-    inputText: state.virtualTable.inputText,
-    suggestions: state.virtualTable.suggestionsOpen && state.virtualTable.suggestions,
-    keyboardOpen: state.virtualTable.suggestionsOpen,
-    url: getVirtualTableUrl(state.virtualTable.selectedSuggestion),
+    inputText: vt.inputText,
+    suggestions: vt.suggestionsOpen && getSuggestions(state),
+    keyboardOpen: vt.suggestionsOpen,
+    url: getVirtualTableUrl(vt.selectedStop),
   }
 }
 

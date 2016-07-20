@@ -9,6 +9,8 @@ import { persistStore } from 'redux-persist'
 import { AsyncStorage } from 'react-native'
 import promise from './promise';
 
+import { getGeoLocation } from './actions/app';
+
 export default function configureStore(onCompletion:()=>void):any {
 	const enhancer = compose(
 		applyMiddleware(thunk, promise),
@@ -19,6 +21,14 @@ export default function configureStore(onCompletion:()=>void):any {
 
 	let store = createStore(reducer, enhancer);
 	persistStore(store, {storage: AsyncStorage}, onCompletion);
+	initStore(store);
 
 	return store
+}
+
+/**
+Fire (possibly async) actions to initialize the application state
+*/
+function initStore(store) {
+	store.dispatch(getGeoLocation());
 }
