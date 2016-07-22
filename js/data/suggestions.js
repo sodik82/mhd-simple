@@ -20,9 +20,8 @@ function scoreByGeo(suggestions, near) {
   const { longitude, latitude } = near.coords;
   const score = (s) => {
     if (s.x && s.y) {
-      s.score = 10 - Math.log(distance(s.x, s.y, longitude, latitude));
-    } else {
-      s.score = 0;
+      s.distance = distance(s.x, s.y, longitude, latitude);
+      s.score += 10 - Math.log(s.distance);
     }
     return s;
   };

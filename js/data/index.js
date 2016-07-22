@@ -20,6 +20,7 @@ export function getStops(query) {
       vtid: stop.vtid,
       x: stop.x && parseFloat(stop.x),
       y: stop.y && parseFloat(stop.y),
+      score: 0,
     };
   });
 }

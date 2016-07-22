@@ -1,7 +1,9 @@
 import React from 'react';
 
-import { InputGroup, Input, Icon, List, ListItem, Text, } from 'native-base';
+import { InputGroup, Input, Icon, List, } from 'native-base';
 import { View, TouchableHighlight, } from 'react-native';
+
+import SuggestionItem from './SuggestionItem';
 
 const StopInput = (props) => {
   console.log("props", props);
@@ -9,13 +11,13 @@ const StopInput = (props) => {
   const suggestions = props.suggestions && (
     <List>
       {props.suggestions.reverse().map(s => (
-        <ListItem key={s.id}>
+        <View key={s.id}>
           <TouchableHighlight onPress={() => props.onSelect(s)}>
             <View>
-              <Text>{s.name}</Text>
+              <SuggestionItem suggestion={s}/>
             </View>
           </TouchableHighlight>
-        </ListItem>))}
+        </View>))}
     </List>
   );
   return (
