@@ -9,9 +9,8 @@ import { closeDrawer } from './actions/drawer';
 import { popRoute } from './actions/route';
 import Navigator from 'Navigator';
 
-import Home from './components/home/';
+import Home from './components/virtualTable/';
 import SideBar from './components/sideBar';
-import BlankPage from './components/blankPage/';
 
 export var globalNav = {};
 
@@ -93,8 +92,6 @@ class AppNavigator extends Component {
         switch (route.id) {
             case 'home':
                 return <Home navigator={navigator} />;
-            case 'blankPage':
-                return <BlankPage navigator={navigator} />;
             default :
                 return <Home navigator={navigator}  />;
         }

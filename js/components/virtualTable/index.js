@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Container, Text, } from 'native-base';
+import { Text } from 'native-base';
 import { View, WebView } from 'react-native';
 const dismissKeyboard = require('dismissKeyboard');
 
@@ -15,46 +15,39 @@ import { getSuggestions } from '../../data/suggestions';
 import StopInput from '../StopInput';
 import KeyboardSpacer from '../KeyboardSpacer';
 
-import theme from '../../themes/base-theme';
 import styles from './styles';
 
-class Home extends Component {
-
-    replaceRoute(route) {
-        this.props.replaceRoute(route);
-    }
+class VirtualTable extends Component {
 
     render() {
         const { inputBlur, inputSet, inputFocus, inputText, suggestions, selectSuggestion, url } = this.props;
         return (
-            <Container theme={theme} style={{backgroundColor: '#565051'}}>
-                <View style={styles.main}>
-                  <View style={[styles.row, {flex:1, flexDirection: 'column'}]}>
-                      <View>
-                        <Text>
-                            MHD simple
-                        </Text>
-                      </View>
-                      {url && (
-                        <WebView
-                          source={{uri: url}}
-                          style={{marginTop: 5, flex: 1, }}
-                        />)}
-                  </View>
-                  <View>
-                    <StopInput
-                      onBlur={inputBlur}
-                      onChangeText={inputSet}
-                      onFocus={inputFocus}
-                      value={inputText}
-                      suggestions={suggestions}
-                      onSelect={selectSuggestion}
-                      autoFocus={true}
-                      />
-                  </View>
-                  <KeyboardSpacer/>
+          <View style={styles.main}>
+            <View style={[styles.row, {flex:1, flexDirection: 'column'}]}>
+                <View>
+                  <Text>
+                      MHD simple
+                  </Text>
                 </View>
-            </Container>
+                {url && (
+                  <WebView
+                    source={{uri: url}}
+                    style={{marginTop: 5, flex: 1, }}
+                  />)}
+            </View>
+            <View>
+              <StopInput
+                onBlur={inputBlur}
+                onChangeText={inputSet}
+                onFocus={inputFocus}
+                value={inputText}
+                suggestions={suggestions}
+                onSelect={selectSuggestion}
+                autoFocus={true}
+                />
+            </View>
+            <KeyboardSpacer/>
+          </View>
         )
     }
 
@@ -89,4 +82,4 @@ function getVirtualTableUrl(sug) {
   }
 }
 
-export default connect(mapStateToProps, bindAction)(Home);
+export default connect(mapStateToProps, bindAction)(VirtualTable);

@@ -1,10 +1,16 @@
 
 'use strict';
-
-import AppNavigator from './AppNavigator';
 import React,{ Component } from "react";
+
 // import CodePush from 'react-native-code-push';
-import { AppState} from 'react-native';
+import { AppState, View } from 'react-native';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+import { Container } from 'native-base';
+
+import VirtualTable from './components/virtualTable/';
+import InfoPage from './components/InfoPage';
+
+import theme from './themes/base-theme';
 
 class App extends Component {
     componentDidMount() {
@@ -23,7 +29,19 @@ class App extends Component {
     }
     render() {
         return (
-            <AppNavigator store={this.props.store} />
+          <Container theme={theme} style={{backgroundColor: '#565051'}}>
+            <View style={{flex:1}}>
+              <ScrollableTabView tabBarPosition="bottom"
+                contentProps={{
+                  contentContainerStyle: {flex:1},
+                  keyboardShouldPersistTaps: true,
+                }}
+              >
+                <VirtualTable tabLabel="Zastavky" />
+                <InfoPage tabLabel="Info" />
+              </ScrollableTabView>
+            </View>
+          </Container>
         );
     }
 }

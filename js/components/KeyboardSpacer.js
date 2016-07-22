@@ -11,5 +11,5 @@ export default function KeyboardSpacer() {
     // disable keybaord spacer for android
     return null;
   }
-  return <OriginalKeyboardSpacer/>;
+  return <OriginalKeyboardSpacer topSpacing={-50}/>;
 }
