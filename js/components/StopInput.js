@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { InputGroup, Input, Icon, List, } from 'native-base';
+import { InputGroup, Input, Icon, List, Button} from 'native-base';
 import { View, TouchableHighlight, } from 'react-native';
 
 import SuggestionItem from './SuggestionItem';
@@ -20,13 +20,21 @@ const StopInput = (props) => {
         </View>))}
     </List>
   );
+  const shouldReset = !!props.value;
   return (
     <View>
       {suggestions}
-      <InputGroup>
-          <Icon name="ios-home" />
-          <Input placeholder="Zadaj meno zastavky" autoCorrect={false} autoCapitalize="none" {...props}/>
-      </InputGroup>
+      <View style={{flexDirection: 'row'}}>
+        <InputGroup style={{flex: 1}}>
+            <Icon name="ios-home" />
+            <Input placeholder="Zadaj meno zastavky" autoCorrect={false} autoCapitalize="none" {...props}/>
+        </InputGroup>
+        {shouldReset &&
+          <Button transparent onPress={props.onReset}>
+            <Icon name="ios-close" />
+          </Button>
+        }
+      </View>
     </View>
   );
 }

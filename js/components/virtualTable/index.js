@@ -43,6 +43,7 @@ class VirtualTable extends Component {
                 value={inputText}
                 suggestions={suggestions}
                 onSelect={selectSuggestion}
+                onReset={() => inputSet('')}
                 autoFocus={true}
                 />
             </View>
