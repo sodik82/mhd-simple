@@ -66,11 +66,12 @@ function bindAction(dispatch) {
 
 function mapStateToProps(state) {
   const vt = state.virtualTable;
+  const suggestionsOpen = vt.keyboardOpen || !vt.selectedStop;
   return {
     inputText: vt.inputText,
     // TODO perf - "mnemonize getSuggestions"
-    suggestions: vt.suggestionsOpen && getSuggestions({ query : vt.inputText, near: state.app.geoPosition}),
-    keyboardOpen: vt.suggestionsOpen,
+    suggestions: suggestionsOpen && getSuggestions({ query : vt.inputText, near: state.app.geoPosition}),
+    keyboardOpen: vt.keyboardOpen,
     url: getVirtualTableUrl(vt.selectedStop),
   }
 }
