@@ -5,7 +5,8 @@
   "scripts": {
     "postinstall": "remotedev-debugger",
     "lint": "eslint js/",
-    "start": "node_modules/react-native/packager/packager.sh"
+    "start": "node_modules/react-native/packager/packager.sh",
+    "test": "mocha --recursive --compilers js:babel-core/register"
   },
   "dependencies": {
     "immutable": "^3.8.1",
@@ -29,7 +30,9 @@
     "rx": "^4.1.0"
   },
   "devDependencies": {
+    "babel-core": "^6.11.4",
     "babel-eslint": "^6.1.2",
+    "babel-preset-react-native": "^1.9.0",
     "chai": "^3.5.0",
     "eslint": "^3.1.0",
     "eslint-plugin-react": "^5.2.2",
