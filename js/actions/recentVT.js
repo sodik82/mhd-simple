@@ -23,9 +23,7 @@ export function load(store = AsyncStorage) {
         const recent = JSON.parse(value);
         let map = fromJS(recent);
         // we need to transform records
-        console.log("new map", map);
         map = map.map((v) => mapToRecord(new RecentItem(), v));
-        console.log("new map", map);
         dispatch(loaded(map));
       }
     });
@@ -41,5 +39,5 @@ function loaded(recent) {
 
 // TODO move to immutable util
 export function mapToRecord(destinationRecord, sourceMap) {
-  return sourceMap.reduce((r,v,k) => r.set(k,v), destinationRecord);
+  return destinationRecord.merge(sourceMap);
 }

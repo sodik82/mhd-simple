@@ -24,7 +24,6 @@ describe('recentVT actions', function () {
 
   it('save/load returns equivalent object', function (done) {
     const dispatch = (action) => {
-      console.log("dispatcher called", action);
       const record = action.recent.get("z1");
       expect(record.hits).to.be.equal(5);
       done();
