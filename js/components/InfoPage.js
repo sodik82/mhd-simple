@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { Text, } from 'native-base';
-import { View, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, StyleSheet, } from 'react-native';
 
 class InfoPage extends Component {
 
@@ -13,9 +13,10 @@ class InfoPage extends Component {
     const { geo } = this.props;
     return (
       <View style={styles.main}>
-        <TouchableHighlight onPress={() => console.log("haha")}><View>
-          <Text>{"GEO:" + JSON.stringify(geo)}</Text>
-        </View></TouchableHighlight>
+        <Text style={styles.heading}>
+            {'{MHD simple}'}
+        </Text>
+        <Text>{"Vaša pozícia: " + (geo ? "známa" : "neznáma")}</Text>
       </View>
     )
   }
@@ -32,8 +33,12 @@ export default connect(mapStateToProps)(InfoPage);
 
 const styles = StyleSheet.create({
     main: {
-      flexDirection: 'column',
       flex: 1,
+      flexDirection: 'column',
       paddingTop: 25,
-    }
+    },
+    heading: {
+      textAlign: 'center',
+    },
+
 });

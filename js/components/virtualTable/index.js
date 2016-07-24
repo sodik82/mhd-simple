@@ -23,16 +23,14 @@ class VirtualTable extends Component {
         const { inputBlur, inputSet, inputFocus, inputText, suggestions, selectSuggestion, url } = this.props;
         return (
           <View style={styles.main}>
-            <View style={[styles.row, {flex:1, flexDirection: 'column'}]}>
-                <View>
-                  <Text>
-                      MHD simple
-                  </Text>
-                </View>
+            <View style={styles.body}>
+                <Text style={styles.heading}>
+                    {'{MHD simple}'}
+                </Text>
                 {url && (
                   <WebView
                     source={{uri: url}}
-                    style={{marginTop: 5, flex: 1, }}
+                    style={styles.virtualTable}
                   />)}
             </View>
             <View>

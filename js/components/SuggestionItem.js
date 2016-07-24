@@ -4,7 +4,6 @@ import { Text, } from 'native-base';
 import { View, StyleSheet } from 'react-native';
 
 function SuggestionItem (props) {
-  console.log("props", props);
   const s = props.suggestion;
   return (
     <View>
