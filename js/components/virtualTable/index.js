@@ -69,7 +69,7 @@ function mapStateToProps(state) {
   return {
     inputText: vt.inputText,
     // TODO perf - "mnemonize getSuggestions"
-    suggestions: suggestionsOpen && getSuggestions({ query : vt.inputText, near: state.app.geoPosition}),
+    suggestions: suggestionsOpen && getSuggestions({ query : vt.inputText, near: state.app.geoPosition, recent: state.recentVT}),
     keyboardOpen: vt.keyboardOpen,
     url: getVirtualTableUrl(vt.selectedStop),
   }

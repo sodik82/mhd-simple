@@ -10,6 +10,7 @@ import { AsyncStorage } from 'react-native'
 import promise from './promise';
 
 import { getGeoLocation } from './actions/app';
+import { load } from './actions/recentVT';
 
 export default function configureStore(onCompletion:()=>void):any {
 	const enhancer = compose(
@@ -32,5 +33,6 @@ export default function configureStore(onCompletion:()=>void):any {
 Fire (possibly async) actions to initialize the application state
 */
 function initStore(store) {
+	store.dispatch(load());
 	store.dispatch(getGeoLocation());
 }

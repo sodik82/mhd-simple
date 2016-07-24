@@ -8,7 +8,7 @@ function SuggestionItem (props) {
   return (
     <View>
       <Text>{s.name}</Text>
-      <Text style={styles.details}>{`S:${s.score} D: ${s.distance}`}</Text>
+      <Text style={styles.details}>{`S:${s.score} D: ${s.distance} H: ${s.hits}`}</Text>
     </View>
   );
 }

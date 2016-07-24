@@ -4,8 +4,9 @@ import { List } from 'immutable';
 const MAX_SUGGESTIONS = 7;
 
 export function getSuggestions(cfg) {
-  const { query, near } = cfg;
+  const { query, near, recent } = cfg;
   let suggestions = getStops(query);
+  suggestions = scoreByRecent(suggestions, recent);
   if (near) {
     suggestions = scoreByGeo(suggestions, near);
   }
@@ -37,6 +38,17 @@ export function distance(lat1, lon1, lat2, lon2) {
           (1 - c((lon2 - lon1) * p))/2;
 
   return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+}
+
+function scoreByRecent(suggestions, recent) {
+  console.log("scoreByRecent", recent);
+  const score = (s) => {
+    const r = recent.get(s.id);
+    s.hits = r ? r.hits : 0;
+    s.score += Math.log(1 + s.hits);
+    return s;
+  };
+  return suggestions.map(score);
 }
 
 function sortByScore(suggestions) {

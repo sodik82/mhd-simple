@@ -6,7 +6,7 @@
     "postinstall": "remotedev-debugger",
     "lint": "eslint js/",
     "start": "node_modules/react-native/packager/packager.sh",
-    "test": "mocha --recursive --compilers js:babel-core/register"
+    "test": "mocha --require react-native-mock/mock.js --recursive --compilers js:babel-core/register"
   },
   "dependencies": {
     "immutable": "^3.8.1",
@@ -37,6 +37,7 @@
     "eslint": "^3.1.0",
     "eslint-plugin-react": "^5.2.2",
     "mocha": "^2.5.3",
+    "react-native-mock": "^0.2.5",
     "remote-redux-devtools": "^0.3.3",
     "remote-redux-devtools-on-debugger": "^0.4.6",
     "remotedev-server": "^0.1.2"
