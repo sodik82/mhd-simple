@@ -24,17 +24,15 @@ const StopInput = (props) => {
   return (
     <View>
       {suggestions}
-      <View style={{flexDirection: 'row'}}>
-        <InputGroup style={{flex: 1}}>
-            <Icon name="ios-home" />
-            <Input placeholder="Zadaj meno zastavky" autoCorrect={false} autoCapitalize="none" {...props}/>
-        </InputGroup>
-        {shouldReset &&
-          <Button transparent onPress={props.onReset}>
-            <Icon name="ios-close" />
-          </Button>
-        }
-      </View>
+      <InputGroup >
+          <Icon name="ios-home" />
+          <Input placeholder="Zadaj meno zastavky" autoCorrect={false} autoCapitalize="none" {...props}/>
+          {shouldReset &&
+            <Button transparent small onPress={props.onReset}>
+              <Icon name="ios-close" />
+            </Button>
+          }
+      </InputGroup>
     </View>
   );
 }
